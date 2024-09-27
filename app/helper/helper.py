@@ -50,8 +50,8 @@ class LocationModel(SingletonModel):
             "UBND_TPHCM",
             "Unknown"
         ]
-        class_name = classes[predicted_class[0]]
-        return class_name
+        class_names = classes[predicted_class[0],predicted_class[1],predicted_class[2]]
+        return class_names
     
 class FoodModel(SingletonModel):
     def __init__(self):
@@ -82,8 +82,8 @@ class FoodModel(SingletonModel):
             'Pha_Lau', 
             'Pho', 
             'Unknown']
-        class_name = classes[predicted_class[0]]
-        return class_name
+        class_names = classes[predicted_class[0],predicted_class[1],predicted_class[2]]
+        return class_names
 
 location_model = LocationModel.get_instance()
 food_model = FoodModel.get_instance()

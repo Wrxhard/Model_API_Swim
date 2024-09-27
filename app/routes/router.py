@@ -22,7 +22,7 @@ async def classify_location(request: Request):
         data = await request.json()
         img_array = download_and_process_image(data['image_url'])
         result = location_model.predict(img_array)
-        return ImageClassificationResponse(result=[result])
+        return ImageClassificationResponse(result=result)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     
@@ -32,6 +32,6 @@ async def classify_location(request: Request):
         data = await request.json()
         img_array = download_and_process_image(data['image_url'])
         result = food_model.predict(img_array)
-        return ImageClassificationResponse(result=[result])
+        return ImageClassificationResponse(result=result)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
